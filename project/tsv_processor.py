@@ -1,6 +1,6 @@
 import csv
 import json
-from typing import List
+from typing import List, Union
 
 from settings import BUY, ORDER_ADD, SECURITY, SELL, SIXTEEN_MB_IN_BINARY_BYTES
 
@@ -12,9 +12,9 @@ class TSVProcessor:
         self.binary_bytes: int = SIXTEEN_MB_IN_BINARY_BYTES
         self.tsv_headers: List[str] = tsv_headers
         self.tsv_FILE_DIR: str = tsv_FILE_DIR
-        self.dataset_directory = dataset_directory
+        self.dataset_directory: str = dataset_directory
 
-    def zero_div(self, x, y):
+    def zero_div(self, x, y) -> Union[int, float]:
         try:
             return x / y
         except ZeroDivisionError:
@@ -36,11 +36,11 @@ class TSVProcessor:
                     elif ORDER_ADD in row:
                         self._format_order_add(row, store)
 
-            for _, row_to_write in store.items():
-                if max(row_to_write[2:]) != 0:
-                    row_to_write[6] = self.zero_div(row_to_write[8], row_to_write[4])
-                    row_to_write[7] = self.zero_div(row_to_write[9], row_to_write[5])
-                    tsv_writer.writerow(row_to_write[:-2])
+            for _, row_values in store.items():
+                if max(row_values[2:]) != 0:
+                    row_values[6] = self.zero_div(row_values[8], row_values[4])
+                    row_values[7] = self.zero_div(row_values[9], row_values[5])
+                    tsv_writer.writerow(row_values[:-2])
 
     def _format_security(self, row: str, store: dict) -> None:
         """Formatting and aggregating raw security data"""
@@ -75,7 +75,7 @@ class TSVProcessor:
         )
         security_id = formatted_row["bookEntry_"]["securityId_"]
 
-        # only aggregate data if security and order add data exist, else exit early
+        # exit early if security and order add data don't exist
         if security_id not in store.keys():
             return
 
