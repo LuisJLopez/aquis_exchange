@@ -13,7 +13,7 @@
 Requirements: Python 3.9.5 (& pip 22.2.2)
 
 ```
-$ pip install -r requirements
+$ pip install -r requirements.txt
 ```
 
 ```
