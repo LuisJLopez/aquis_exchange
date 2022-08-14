@@ -1,4 +1,4 @@
-from constants import DATASET_FILE_DIR, TSV_FILE_DIR, TSV_HEADERS, URL
+from settings import DATASET_FILE_DIR, TSV_FILE_DIR, TSV_HEADERS, URL
 from file_downloader import FileDownloader
 from tsv_processor import TSVProcessor
 

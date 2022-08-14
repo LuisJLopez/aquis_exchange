@@ -1,8 +1,10 @@
 import os
 from datetime import datetime
 from email.utils import formatdate, parsedate_to_datetime
-from constants import ONE_MB_IN_BINARY_BYTES
+
 import requests
+
+from settings import ONE_MB_IN_BINARY_BYTES
 
 
 class FileDownloader:

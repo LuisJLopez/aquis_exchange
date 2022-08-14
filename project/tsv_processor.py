@@ -2,7 +2,7 @@ import csv
 import json
 from typing import List
 
-from constants import BUY, ORDER_ADD, SECURITY, SELL, SIXTEEN_MB_IN_BINARY_BYTES
+from settings import BUY, ORDER_ADD, SECURITY, SELL, SIXTEEN_MB_IN_BINARY_BYTES
 
 
 class TSVProcessor:
