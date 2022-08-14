@@ -1,4 +1,4 @@
-# aquis_exchange
+# Aquis Exchange
 
 ### Content: (In logical order)
 - [Main entry point](/project/__main__.py)
