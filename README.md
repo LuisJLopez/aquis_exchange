@@ -19,3 +19,22 @@ $ pip install -r requirements
 ```
 $ python project
 ```
+
+### How to run with docker:
+
+```
+$ docker build -t <project_name/aquis> .
+```
+
+```
+$ docker run <project_name/aquis>
+```
+
+> Files will be stored inside the container by default.
+> If you wish to copy them from the container to your host/local use docker cp.
+
+```
+$ docker cp <container_id>:<source> <destination>
+```
+
+>e.g. docker cp 60e3863f09d7:/app/downloads/ .
