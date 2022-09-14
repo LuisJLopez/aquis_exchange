@@ -4,7 +4,7 @@ from email.utils import formatdate, parsedate_to_datetime
 
 import requests
 
-from settings import ONE_MB_IN_BINARY_BYTES
+from constants import ONE_MB_IN_BINARY_BYTES
 
 
 class FileDownloader:

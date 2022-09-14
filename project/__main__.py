@@ -1,5 +1,6 @@
-from settings import DATASET_FILE_DIR, TSV_FILE_DIR, TSV_HEADERS, URL
+from constants import DATASET_FILE_DIR, TSV_FILE_DIR, TSV_HEADERS
 from file_downloader import FileDownloader
+from settings import MARKET_DATA_URL
 from tsv_processor import TSVProcessor
 
 
@@ -9,7 +10,7 @@ def main():
     - Generating TSV by processing dataset and aggregating data via TSVProcessor
     """
 
-    file_downloader: FileDownloader = FileDownloader(URL, DATASET_FILE_DIR)
+    file_downloader: FileDownloader = FileDownloader(MARKET_DATA_URL, DATASET_FILE_DIR)
     file_downloader.download()
 
     tsv_processor: TSVProcessor = TSVProcessor(
