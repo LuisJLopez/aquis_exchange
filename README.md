@@ -1,4 +1,4 @@
-# aquis_exchange
+# Aquis Exchange
 
 ### Content: (In logical order)
 - [Main entry point](/project/__main__.py)
@@ -13,7 +13,7 @@
 Requirements: Python 3.9.5 (& pip 22.2.2)
 
 ```
-$ pip install -r requirements
+$ pip install -r requirements.txt
 ```
 
 ```
